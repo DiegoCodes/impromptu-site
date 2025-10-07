@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FADE IN — A Landing</title>
+
+  <!-- Google Fonts: Special Elite (typewriter) + Courier Prime fallback -->
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f7f4ef;
+      --ink:#111;
+      --muted:#444;
+      --maxwidth:760px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background: linear-gradient(180deg, #fbfaf7 0%, var(--bg) 100%);
+      color:var(--ink);
+      font-family: "Special Elite", "Courier Prime", ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* center container vertically + horizontally */
+    .stage {
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:48px 20px;
+      box-sizing:border-box;
+    }
+
+    .script {
+      width:100%;
+      max-width:var(--maxwidth);
+      text-align:center;           /* centered as requested */
+      margin:0 auto;
+      line-height:1.65;
+      background: rgba(255,255,255,0.6);
+      padding:56px 48px;
+      border-radius:8px;
+      box-shadow: 0 8px 30px rgba(20,20,20,0.08);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    /* screenplay styling (but centered) */
+    .title {
+      font-size:42px;
+      letter-spacing:1px;
+      margin:0 0 18px 0;
+      text-transform:uppercase;
+    }
+
+    .subtitle {
+      font-size:20px;
+      margin:0 0 18px 0;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    .description {
+      display:block;
+      font-size:18px;
+      margin: 0 auto 28px auto;
+      color:var(--ink);
+      max-width:680px;
+      white-space:pre-wrap;
+      /* slightly emulate screenplay block spacing */
+      padding: 0 8px;
+    }
+
+    .insta {
+      display:inline-block;
+      margin-top:8px;
+      font-size:16px;
+      text-decoration:none;
+      border-bottom:1px dashed rgba(0,0,0,0.2);
+      padding-bottom:4px;
+      color:var(--ink);
+    }
+
+    .insta:hover{
+      transform:translateY(-2px);
+    }
+
+    /* subtle 'typewriter' caret that blinks beside title (pure CSS) */
+    .caret {
+      display:inline-block;
+      width:10px;
+      height:22px;
+      margin-left:8px;
+      vertical-align:middle;
+      background:var(--ink);
+      animation: blink 1s steps(2, start) infinite;
+      border-radius:2px;
+    }
+    @keyframes blink { 50% { opacity:0 } }
+
+    /* responsive tweaks */
+    @media (max-width:520px){
+      .title{ font-size:30px }
+      .subtitle{ font-size:18px }
+      .description{ font-size:16px; line-height:1.5 }
+      .script{ padding:36px 20px }
+    }
+  </style>
+</head>
+<body>
+  <main class="stage" role="main">
+    <article class="script" aria-labelledby="title">
+      <h1 id="title" class="title">FADE IN<span class="caret" aria-hidden="true"></span></h1>
+
+      <h2 class="subtitle">EXT. CITY — DUSK</h2>
+
+      <p class="description">
+        A single landing page. One clear idea.  
+        Text sits center stage like a slug line in a screenplay — concise, deliberate, and waiting for action.
+
+        This page is a teaser: minimal, typed, and ready to point visitors toward the story that lives on your feed.
+      </p>
+
+      <!-- Replace 'yourhandle' with your real Instagram handle -->
+      <p>
+        <a class="insta" href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer">
+          Instagram — @yourhandle
+        </a>
+      </p>
+    </article>
+  </main>
+</body>
+</html>
