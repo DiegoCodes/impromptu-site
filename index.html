@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>FADE IN — A Landing</title>
 
-  <!-- Google Fonts: Special Elite (typewriter) + Courier Prime fallback -->
+  <!-- Typewriter fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -21,12 +21,9 @@
       margin:0;
       background: linear-gradient(180deg, #fbfaf7 0%, var(--bg) 100%);
       color:var(--ink);
-      font-family: "Special Elite", "Courier Prime", ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      font-family: "Special Elite", "Courier Prime", ui-monospace, monospace;
     }
 
-    /* center container vertically + horizontally */
     .stage {
       min-height:100%;
       display:flex;
@@ -37,9 +34,10 @@
     }
 
     .script {
+      position:relative;
       width:100%;
       max-width:var(--maxwidth);
-      text-align:center;           /* centered as requested */
+      text-align:center;
       margin:0 auto;
       line-height:1.65;
       background: rgba(255,255,255,0.6);
@@ -47,9 +45,38 @@
       border-radius:8px;
       box-shadow: 0 8px 30px rgba(20,20,20,0.08);
       border: 1px solid rgba(0,0,0,0.04);
+      overflow: hidden;
     }
 
-    /* screenplay styling (but centered) */
+    /* “photo” element pinned with a pseudo paperclip */
+    .photo {
+      position:absolute;
+      top:-20px;
+      right:-20px;
+      width:120px;
+      height:100px;
+      background:#fff url('https://picsum.photos/200/150?grayscale') center/cover no-repeat;
+      border:2px solid rgba(0,0,0,0.1);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      transform: rotate(5deg);
+      border-radius:4px;
+    }
+
+    .photo::before {
+      content:"";
+      position:absolute;
+      top:6px;
+      left:10px;
+      width:16px;
+      height:36px;
+      border:2px solid #888;
+      border-radius:8px 8px 0 0;
+      border-bottom:none;
+      background:transparent;
+      transform:rotate(-15deg);
+      box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+    }
+
     .title {
       font-size:42px;
       letter-spacing:1px;
@@ -71,7 +98,6 @@
       color:var(--ink);
       max-width:680px;
       white-space:pre-wrap;
-      /* slightly emulate screenplay block spacing */
       padding: 0 8px;
     }
 
@@ -89,7 +115,6 @@
       transform:translateY(-2px);
     }
 
-    /* subtle 'typewriter' caret that blinks beside title (pure CSS) */
     .caret {
       display:inline-block;
       width:10px;
@@ -100,37 +125,39 @@
       animation: blink 1s steps(2, start) infinite;
       border-radius:2px;
     }
+
     @keyframes blink { 50% { opacity:0 } }
 
-    /* responsive tweaks */
     @media (max-width:520px){
       .title{ font-size:30px }
       .subtitle{ font-size:18px }
       .description{ font-size:16px; line-height:1.5 }
       .script{ padding:36px 20px }
+      .photo{ width:90px; height:70px; top:-15px; right:-15px; }
     }
   </style>
 </head>
 <body>
-  <main class="stage" role="main">
-    <article class="script" aria-labelledby="title">
-      <h1 id="title" class="title">FADE IN<span class="caret" aria-hidden="true"></span></h1>
+  <main class="stage">
+    <article class="script">
+      <div class="photo" aria-hidden="true"></div>
 
-      <h2 class="subtitle">EXT. CITY — DUSK</h2>
+      <h1 class="title">ONCE A FILMMAKER...<span class="caret"></span></h1>
+      <h2 class="subtitle">DIEGO PEREZ V — ALWAYS A FILMMAKER</h2>
 
       <p class="description">
-        A single landing page. One clear idea.  
-        Text sits center stage like a slug line in a screenplay — concise, deliberate, and waiting for action.
-
-        This page is a teaser: minimal, typed, and ready to point visitors toward the story that lives on your feed.
+        I love making films. 
+        The generic origin story, making films since I was a kid. Well... teen. I didn't have access to a camera as a kid.
+        Anyways, what can I say? I love the process, shooting, framing, directing. It's kind of funny, because I haven't seen
+        a lot of movies, which is a big awkward. The truth is I think I love making films more than I love watching them, although
+        I will say that I also prefer watching them in theaters, on the BIG SCREEN, so maybe that's a reason why I haven't seen so 
+        many "must-sees". 
+        Last year I shot my first short film in A WHILE. After moving to a new city I'm just trying to get back in the game.
       </p>
 
-      <!-- Replace 'yourhandle' with your real Instagram handle -->
-      <p>
-        <a class="insta" href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer">
-          Instagram — @yourhandle
-        </a>
-      </p>
+      <a class="insta" href="https://instagram.com/onceafilmmaker" target="_blank" rel="noopener noreferrer">
+        Instagram — @onceafilmmaker
+      </a>
     </article>
   </main>
 </body>
